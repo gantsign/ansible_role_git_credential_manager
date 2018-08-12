@@ -1,2 +1,21 @@
 ---
-# defaults file for ansible-role-git-credential-manager
+# Git Credential Manager version number
+git_credential_manager_version: '2.0.3'
+
+# The SHA256 of the Git Credential Manager JAR
+git_credential_manager_jar_sha256sum: 'ee7a11486dffbea366c79500395d9f1384fe4dd3f91b49e09e6bc2ed8ab5f65a'
+
+# The major version of the JRE
+git_credential_manager_jre_major_version: '8'
+
+# The full version of the JRE (from AdoptOpenJDK)
+git_credential_manager_jre_version: 'jdk8u162-b12_openj9-0.8.0'
+
+# The SHA256 of the JRE
+git_credential_manager_jre_sha256sum: '4a90944fbe96cb6452391e952cc7c9b5136fb042a445eb205e31a029fd72fd7c'
+
+# Base installation directory the Git Credential Manager
+git_credential_manager_install_dir: '/opt/git-credential-manager/{{ git_credential_manager_version }}'
+
+# Directory to store files downloaded for the Git Credential Manager
+git_credential_manager_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
