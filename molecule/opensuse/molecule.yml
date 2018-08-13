@@ -9,7 +9,7 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ansible-role-git-credential-manager-opensuse-leap
+  - name: ansible_role_git_credential_manager_opensuse
     image: opensuse:42.2
 
 provisioner:

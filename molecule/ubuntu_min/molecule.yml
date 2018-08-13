@@ -9,7 +9,7 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ansible-role-git-credential-manager-ubuntu-min
+  - name: ansible_role_git_credential_manager_ubuntu_min
     image: ubuntu:14.04
 
 provisioner:
@@ -20,7 +20,7 @@ provisioner:
     name: ansible-lint
 
 scenario:
-  name: ubuntu-min
+  name: ubuntu_min
 
 verifier:
   name: testinfra

@@ -9,7 +9,7 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ansible-role-git-credential-manager-centos
+  - name: ansible_role_git_credential_manager_centos
     image: centos:7
 
 provisioner:
