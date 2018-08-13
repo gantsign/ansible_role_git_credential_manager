@@ -11,16 +11,16 @@ matrix:
         - MOLECULE_SCENARIO=centos
     - env:
         - ANSIBLE_VERSION=2.4.6
-        - MOLECULE_SCENARIO=debian-max
+        - MOLECULE_SCENARIO=debian_max
     - env:
         - ANSIBLE_VERSION=2.4.6
-        - MOLECULE_SCENARIO=debian-min
+        - MOLECULE_SCENARIO=debian_min
     - env:
         - ANSIBLE_VERSION=2.4.6
-        - MOLECULE_SCENARIO=ubuntu-max
+        - MOLECULE_SCENARIO=ubuntu_max
     - env:
         - ANSIBLE_VERSION=2.4.6
-        - MOLECULE_SCENARIO=ubuntu-min
+        - MOLECULE_SCENARIO=ubuntu_min
     - env:
         - ANSIBLE_VERSION=2.4.6
         - MOLECULE_SCENARIO=opensuse
@@ -29,16 +29,16 @@ matrix:
         - MOLECULE_SCENARIO=centos
     - env:
         - ANSIBLE_VERSION=2.6.2
-        - MOLECULE_SCENARIO=debian-max
+        - MOLECULE_SCENARIO=debian_max
     - env:
         - ANSIBLE_VERSION=2.6.2
-        - MOLECULE_SCENARIO=debian-min
+        - MOLECULE_SCENARIO=debian_min
     - env:
         - ANSIBLE_VERSION=2.6.2
-        - MOLECULE_SCENARIO=ubuntu-max
+        - MOLECULE_SCENARIO=ubuntu_max
     - env:
         - ANSIBLE_VERSION=2.6.2
-        - MOLECULE_SCENARIO=ubuntu-min
+        - MOLECULE_SCENARIO=ubuntu_min
     - env:
         - ANSIBLE_VERSION=2.6.2
         - MOLECULE_SCENARIO=opensuse

@@ -9,7 +9,7 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ansible-role-git-credential-manager-default
+  - name: ansible_role_git_credential_manager_default
     image: ubuntu:18.04
 
 provisioner:

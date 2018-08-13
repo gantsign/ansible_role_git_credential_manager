@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: John Freeman
-  role_name: git-credential-manager
+  role_name: git_credential_manager
   description: Role for installing Microsoft's Git Credential Manager for Mac and Linux.
   company: GantSign Ltd.
   license: MIT

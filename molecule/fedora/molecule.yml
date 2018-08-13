@@ -9,7 +9,7 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ansible-role-git-credential-manager-fedora
+  - name: ansible_role_git_credential_manager_fedora
     image: fedora:28
 
 provisioner:

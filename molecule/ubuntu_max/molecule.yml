@@ -9,7 +9,7 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ansible-role-git-credential-manager-ubuntu-max
+  - name: ansible_role_git_credential_manager_ubuntu_max
     image: ubuntu:18.04
 
 provisioner:
@@ -20,7 +20,7 @@ provisioner:
     name: ansible-lint
 
 scenario:
-  name: ubuntu-max
+  name: ubuntu_max
 
 verifier:
   name: testinfra

@@ -1,9 +1,9 @@
 Ansible Role: Git Credential Manager
 ====================================
 
-[![Build Status](https://travis-ci.com/gantsign/ansible-role-git-credential-manager.svg?branch=master)](https://travis-ci.com/gantsign/ansible-role-git-credential-manager)
-[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-gantsign.git--credential--manager-blue.svg)](https://galaxy.ansible.com/gantsign/git-credential-manager)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gantsign/ansible-role-git-credential-manager/master/LICENSE)
+[![Build Status](https://travis-ci.com/gantsign/ansible_role_git_credential_manager.svg?branch=master)](https://travis-ci.com/gantsign/ansible_role_git_credential_manager)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-gantsign.git__credential__manager-blue.svg)](https://galaxy.ansible.com/gantsign/git_credential_manager)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gantsign/ansible_role_git_credential_manager/master/LICENSE)
 
 Role to install Microsoft's [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux).
 
@@ -82,7 +82,7 @@ Example Playbook
 ```yaml
 - hosts: servers
   roles:
-    - role: gantsign.git-credential-manager
+    - role: gantsign.git_credential_manager
 ```
 
 More Roles From GantSign

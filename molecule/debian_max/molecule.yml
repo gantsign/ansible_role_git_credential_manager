@@ -9,8 +9,8 @@ lint:
   name: yamllint
 
 platforms:
-  - name: ansible-role-git-credential-manager-debian-min
-    image: debian:8
+  - name: ansible_role_git_credential_manager_debian_max
+    image: debian:9
 
 provisioner:
   name: ansible
@@ -20,7 +20,7 @@ provisioner:
     name: ansible-lint
 
 scenario:
-  name: debian-min
+  name: debian_max
 
 verifier:
   name: testinfra
