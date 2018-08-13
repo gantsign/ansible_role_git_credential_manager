@@ -1,2 +1,27 @@
 ---
-# vars file for ansible-role-git-credential-manager
+# Mirror to download the Git Credential Manager JAR from
+git_credential_manager_jar_mirror: 'https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux/releases/download/git-credential-manager-{{ git_credential_manager_version }}'
+
+# File name of the Git Credential Manager JAR
+git_credential_manager_jar_filename: 'git-credential-manager-{{ git_credential_manager_version }}.jar'
+
+# The OS for the JRE
+git_credential_manager_os: '{{ (ansible_os_family == "Darwin") | ternary("mac", "linux") }}'
+
+# The CPU architecture for the JRE
+git_credential_manager_architecture: 'x64'
+
+# The download base file name of the JRE
+git_credential_manager_jre_base_filename: 'OpenJDK{{ git_credential_manager_jre_major_version }}-jre_{{ git_credential_manager_architecture }}_{{ git_credential_manager_os }}_openj9_{{ git_credential_manager_jre_version }}'
+
+# The download file name of the JRE
+git_credential_manager_jre_filename: '{{ git_credential_manager_jre_base_filename }}.tar.gz'
+
+# The symbolic link used to run the application
+git_credential_manager_link: '/usr/local/bin/git-credential-manager'
+
+# The key for the git config
+git_credential_manager_git_config_key: 'credential.helper'
+
+# The value to set in the git config
+git_credential_manager_git_config_value: "!'{{ git_credential_manager_install_dir }}/jre/bin/java' -Ddebug=false -Djava.net.useSystemProxies=true -Xshareclasses:name=git-credential-manager -Xquickstart -jar '{{ git_credential_manager_install_dir }}/libexec/{{ git_credential_manager_jar_filename }}'"

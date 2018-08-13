@@ -1,38 +1,127 @@
-Role Name
-=========
+Ansible Role: Git Credential Manager
+====================================
 
-A brief description of the role goes here.
+[![Build Status](https://travis-ci.com/gantsign/ansible-role-git-credential-manager.svg?branch=master)](https://travis-ci.com/gantsign/ansible-role-git-credential-manager)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-gantsign.git--credential--manager-blue.svg)](https://galaxy.ansible.com/gantsign/git-credential-manager)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gantsign/ansible-role-git-credential-manager/master/LICENSE)
+
+Role to install Microsoft's [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux).
+
+**Important:** while Microsoft's Git Credential Manager works on macOS this
+Ansible role is presently for Linux only.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+* Ansible >= 2.4
+
+* Linux Distribution
+
+    * Debian Family
+
+        * Debian
+
+            * Jessie (8)
+            * Stretch (9)
+
+        * Ubuntu
+
+            * Trusty (14.04)
+            * Xenial (16.04)
+            * Bionic (18.04)
+
+    * RedHat Family
+
+        * CentOS
+
+            * 7
+
+        * Fedora
+
+            * 28
+
+    * SUSE Family
+
+        * OpenSUSE
+
+            * 42.2
+
+    * Note: other versions are likely to work but have not been tested.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+The following variables will change the behavior of this role:
 
-Dependencies
-------------
+```yaml
+# Git Credential Manager version number
+git_credential_manager_version: '2.0.3'
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+# The SHA256 of the Git Credential Manager JAR
+git_credential_manager_jar_sha256sum: 'ee7a11486dffbea366c79500395d9f1384fe4dd3f91b49e09e6bc2ed8ab5f65a'
+
+# The major version of the JRE
+git_credential_manager_jre_major_version: '8'
+
+# The full version of the JRE (from AdoptOpenJDK)
+git_credential_manager_jre_version: 'jdk8u162-b12_openj9-0.8.0'
+
+# The SHA256 of the JRE
+git_credential_manager_jre_sha256sum: '4a90944fbe96cb6452391e952cc7c9b5136fb042a445eb205e31a029fd72fd7c'
+
+# Base installation directory the Git Credential Manager
+git_credential_manager_install_dir: '/opt/git-credential-manager/{{ git_credential_manager_version }}'
+
+# Directory to store files downloaded for the Git Credential Manager
+git_credential_manager_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
+```
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```yaml
+- hosts: servers
+  roles:
+    - role: gantsign.git-credential-manager
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+More Roles From GantSign
+------------------------
+
+You can find more roles from GantSign on
+[Ansible Galaxy](https://galaxy.ansible.com/gantsign).
+
+Development & Testing
+---------------------
+
+This project uses [Molecule](http://molecule.readthedocs.io/) to aid in the
+development and testing; the role is unit tested using
+[Testinfra](http://testinfra.readthedocs.io/) and
+[pytest](http://docs.pytest.org/).
+
+To develop or test you'll need to have installed the following:
+
+* Linux (e.g. [Ubuntu](http://www.ubuntu.com/))
+* [Docker](https://www.docker.com/)
+* [Python](https://www.python.org/) (including python-pip)
+* [Ansible](https://www.ansible.com/)
+* [Molecule](http://molecule.readthedocs.io/)
+
+To test this role run the following command from the project root:
+
+```bash
+molecule test
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+John Freeman
+
+GantSign Ltd.
+Company No. 06109112 (registered in England)
