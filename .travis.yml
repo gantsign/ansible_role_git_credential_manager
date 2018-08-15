@@ -82,7 +82,7 @@ install:
   - molecule destroy
 
 script:
-  - molecule test
+  - molecule test --scenario-name=$MOLECULE_SCENARIO
 
 branches:
   only:
