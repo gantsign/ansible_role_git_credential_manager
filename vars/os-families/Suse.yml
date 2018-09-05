@@ -1,0 +1,6 @@
+---
+# Dependencies for Git Credential Manager
+git_credential_manager_dependencies:
+  - git
+  - libgnome-keyring0
+  - tar

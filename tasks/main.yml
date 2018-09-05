@@ -1,9 +1,16 @@
 ---
-- name: ensure Git installed
+- name: include OS family specific vars
+  with_first_found:
+    - '../vars/os-families/{{ ansible_os_family }}.yml'
+    - ../vars/os-families/default.yml
+  include_vars: '{{ item }}'
+
+- name: install dependencies
   become: yes
   package:
-    name: git
+    name: '{{ item }}'
     state: present
+  with_items: '{{ git_credential_manager_dependencies }}'
 
 - name: create download directory
   file:
@@ -43,13 +50,6 @@
     - '{{ git_credential_manager_install_dir }}'
     - '{{ git_credential_manager_install_dir }}/bin'
     - '{{ git_credential_manager_install_dir }}/libexec'
-
-- name: install tar (zypper)
-  become: yes
-  zypper:
-    name: tar
-    state: present
-  when: ansible_pkg_mgr == 'zypper'
 
 - name: install JRE
   become: yes
