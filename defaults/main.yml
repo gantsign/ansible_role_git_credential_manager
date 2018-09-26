@@ -1,9 +1,9 @@
 ---
 # Git Credential Manager version number
-git_credential_manager_version: '2.0.3'
+git_credential_manager_version: '2.0.4'
 
 # The SHA256 of the Git Credential Manager JAR
-git_credential_manager_jar_sha256sum: 'ee7a11486dffbea366c79500395d9f1384fe4dd3f91b49e09e6bc2ed8ab5f65a'
+git_credential_manager_jar_sha256sum: 'fb8536aac9b00cdf6bdeb0dd152bb1306d88cd3fdb7a958ac9a144bf4017cad7'
 
 # The major version of the JRE
 git_credential_manager_jre_major_version: '8'
