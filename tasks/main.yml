@@ -20,7 +20,7 @@
 
 - name: download JRE
   get_url:
-    url: 'https://api.adoptopenjdk.net/v2/binary/releases/openjdk{{ git_credential_manager_jre_major_version }}?openjdk_impl=openj9&os={{ git_credential_manager_os }}&arch={{ git_credential_manager_architecture }}&release={{ git_credential_manager_jre_version }}&type=jdk'
+    url: 'https://api.adoptopenjdk.net/v2/binary/releases/openjdk{{ git_credential_manager_jre_major_version }}?openjdk_impl=openj9&heap_size=normal&os={{ git_credential_manager_os }}&arch={{ git_credential_manager_architecture }}&release={{ git_credential_manager_jre_version }}&type=jdk'
     dest: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_jre_filename }}'
     sha256sum: '{{ git_credential_manager_jre_sha256sum }}'
     force: no
