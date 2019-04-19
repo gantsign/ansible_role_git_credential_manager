@@ -57,7 +57,7 @@
   command: >
     tar --extract --gunzip --no-same-owner
         --file '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_jre_filename }}'
-        --strip-components=2 --wildcards '*/jre'
+        --strip-components=1 --wildcards '*/jre'
   args:
     chdir: '{{ git_credential_manager_install_dir }}'
     creates: '{{ git_credential_manager_install_dir }}/jre'
