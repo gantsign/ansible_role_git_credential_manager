@@ -13,7 +13,7 @@ Ansible role is presently for Linux only.
 Requirements
 ------------
 
-* Ansible >= 2.5
+* Ansible >= 2.6
 
 * Linux Distribution
 
