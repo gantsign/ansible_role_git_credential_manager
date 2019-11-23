@@ -73,7 +73,7 @@ def test_link(host):
     assert installed_file.exists
     assert installed_file.is_symlink
     assert installed_file.user == 'root'
-    assert installed_file.group == 'root'
+    assert installed_file.group in ['root', 'staff']
 
 
 def test_version(host):
