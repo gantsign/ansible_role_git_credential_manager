@@ -64,10 +64,10 @@ git_credential_manager_jar_sha256sum: 'fb8536aac9b00cdf6bdeb0dd152bb1306d88cd3fd
 git_credential_manager_jre_major_version: '8'
 
 # The full version of the JRE (from AdoptOpenJDK)
-git_credential_manager_jre_version: 'jdk8u212-b03_openj9-0.14.0'
+git_credential_manager_jre_version: 'jdk8u232-b09_openj9-0.17.0'
 
 # The SHA256 of the JRE
-git_credential_manager_jre_sha256sum: '61abbd6b4ab093adb5a0ed6ec89a54123396d8512a44168f7e01d3e7b1fdd07b'
+git_credential_manager_jre_sha256sum: '30bdfdb38901d4807d96a72a33b83f7a4f40255e11a88853c1e8732acc4644a7'
 
 # Base installation directory the Git Credential Manager
 git_credential_manager_install_dir: '/opt/git-credential-manager/{{ git_credential_manager_version }}'
