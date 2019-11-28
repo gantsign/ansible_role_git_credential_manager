@@ -45,7 +45,7 @@
     group: root
     mode: 'u=rwx,go=rx'
     dest: '{{ item }}'
-  with_items:
+  loop:
     - '{{ git_credential_manager_install_dir }}'
     - '{{ git_credential_manager_install_dir }}/bin'
     - '{{ git_credential_manager_install_dir }}/jre'
