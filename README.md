@@ -1,7 +1,7 @@
 Ansible Role: Git Credential Manager
 ====================================
 
-[![Build Status](https://travis-ci.com/gantsign/ansible_role_git_credential_manager.svg?branch=master)](https://travis-ci.com/gantsign/ansible_role_git_credential_manager)
+[![Tests](https://github.com/gantsign/ansible_role_git_credential_manager/workflows/Tests/badge.svg)](https://github.com/gantsign/ansible_role_git_credential_manager/actions?query=workflow%3ATests)
 [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-gantsign.git__credential__manager-blue.svg)](https://galaxy.ansible.com/gantsign/git_credential_manager)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gantsign/ansible_role_git_credential_manager/master/LICENSE)
 
