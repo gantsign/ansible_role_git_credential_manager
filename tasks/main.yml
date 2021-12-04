@@ -21,7 +21,7 @@
   get_url:
     url: 'https://api.adoptopenjdk.net/v3/binary/version/{{ git_credential_manager_jre_version }}/{{ git_credential_manager_os }}/{{ git_credential_manager_architecture }}/jre/openj9/normal/adoptopenjdk'  # noqa 204
     dest: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_jre_filename }}'
-    sha256sum: '{{ git_credential_manager_jre_sha256sum }}'
+    checksum: 'sha256:{{ git_credential_manager_jre_sha256sum }}'
     force: no
     use_proxy: yes
     validate_certs: yes
@@ -31,7 +31,7 @@
   get_url:
     url: '{{ git_credential_manager_jar_mirror }}/{{ git_credential_manager_jar_filename }}'
     dest: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_jar_filename }}'
-    sha256sum: '{{ git_credential_manager_jar_sha256sum }}'
+    checksum: 'sha256:{{ git_credential_manager_jar_sha256sum }}'
     force: no
     use_proxy: yes
     validate_certs: yes
