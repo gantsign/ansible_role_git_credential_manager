@@ -1,110 +1,44 @@
 ---
-- name: include OS family specific vars
-  with_first_found:
-    - '../vars/os-families/{{ ansible_os_family }}.yml'
-    - ../vars/os-families/default.yml
-  include_vars: '{{ item }}'
-
-- name: install dependencies
-  become: yes
-  package:
-    name: '{{ git_credential_manager_dependencies }}'
-    state: present
-
 - name: create download directory
   file:
     state: directory
     mode: 'u=rwx,go=rx'
     dest: '{{ git_credential_manager_download_dir }}'
 
-- name: download JRE
-  get_url:
-    url: 'https://api.adoptopenjdk.net/v3/binary/version/{{ git_credential_manager_jre_version }}/{{ git_credential_manager_os }}/{{ git_credential_manager_architecture }}/jre/openj9/normal/adoptopenjdk'  # noqa 204
-    dest: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_jre_filename }}'
-    checksum: 'sha256:{{ git_credential_manager_jre_sha256sum }}'
-    force: no
-    use_proxy: yes
-    validate_certs: yes
-    mode: 'u=rw,go=r'
-
 - name: download the Git Credential Manager
   get_url:
-    url: '{{ git_credential_manager_jar_mirror }}/{{ git_credential_manager_jar_filename }}'
-    dest: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_jar_filename }}'
-    checksum: 'sha256:{{ git_credential_manager_jar_sha256sum }}'
+    url: '{{ git_credential_manager_mirror }}/{{ git_credential_manager_redis_filename }}'
+    dest: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_redis_filename }}'
+    checksum: 'sha256:{{ git_credential_manager_redis_sha256sum }}'
     force: no
     use_proxy: yes
     validate_certs: yes
     mode: 'u=rw,go=r'
 
-- name: create the Git Credential Manager installation directories
+- name: install dependencies
   become: yes
-  file:
-    state: directory
-    owner: root
-    group: root
-    mode: 'u=rwx,go=rx'
-    dest: '{{ item }}'
-  loop:
-    - '{{ git_credential_manager_install_dir }}'
-    - '{{ git_credential_manager_install_dir }}/bin'
-    - '{{ git_credential_manager_install_dir }}/jre'
-    - '{{ git_credential_manager_install_dir }}/libexec'
-
-- name: install JRE
-  become: yes
-  unarchive:
-    src: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_jre_filename }}'
-    remote_src: yes
-    dest: '{{ git_credential_manager_install_dir }}/jre'
-    extra_opts:
-      - --strip-components=1
-    owner: root
-    group: root
-    # The OpenJ9 package appears to be missing read permissions in /lib & /lib/ext
-    mode: 'go-w,go+r'
+  apt:
+    name:
+      - git
+      - 'libicu6*'
+      - libsecret-1-0
+    state: present
 
 - name: install Git Credential Manager
   become: yes
-  copy:
-    src: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_jar_filename }}'
-    dest: '{{ git_credential_manager_install_dir }}/libexec/{{ git_credential_manager_jar_filename }}'
-    remote_src: yes
-    owner: root
-    group: root
-    mode: 'u=rw,go=r'
+  apt:
+    deb: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_redis_filename }}'
 
-- name: create launcher
-  become: yes
-  template:
-    src: git-credential-manager.j2
-    dest: '{{ git_credential_manager_install_dir }}/bin/git-credential-manager'
-    owner: root
-    group: root
-    mode: 'u=rwx,go=rx'
-
-- name: create symbolic link
-  become: yes
-  file:
-    state: link
-    src: '{{ git_credential_manager_install_dir }}/bin/git-credential-manager'
-    dest: '{{ git_credential_manager_link }}'
-    owner: root
-    group: root
-    mode: 'u=rwx,go=rx'
-
-- name: check Git config
+- name: configure Git (credential helper)
   become: yes
   git_config:
     scope: system
-    name: '{{ git_credential_manager_git_config_key }}'
-  register: git_config_result
+    name: 'credential.helper'
+    value: '{{ git_credential_manager_credential_helper }}'
 
-- name: configure Git
+- name: configure Git (credential store)
   become: yes
   git_config:
     scope: system
-    name: '{{ git_credential_manager_git_config_key }}'
-    value: '{{ git_credential_manager_git_config_value }}'
-  # git_config fails to set changed correctly due to quoting so we have to handle idempotence
-  when: (git_config_result.config_value | regex_replace("'", '')) != (git_credential_manager_git_config_value | regex_replace("'", ''))
+    name: 'credential.credentialStore'
+    value: '{{ git_credential_manager_credential_store }}'

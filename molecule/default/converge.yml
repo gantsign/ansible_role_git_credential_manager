@@ -7,12 +7,6 @@
       apt:
         update_cache: yes
       changed_when: no
-      when: ansible_pkg_mgr == 'apt'
-
-    - name: install find (dnf)
-      dnf:
-        name: findutils
-      when: ansible_pkg_mgr == 'dnf'
 
   roles:
     - role: ansible_role_git_credential_manager
