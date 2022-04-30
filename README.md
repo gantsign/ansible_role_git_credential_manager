@@ -36,13 +36,10 @@ The following variables will change the behavior of this role:
 
 ```yaml
 # Git Credential Manager version number
-git_credential_manager_version: '2.0.632'
-
-# Git Credential Manager build number
-git_credential_manager_build: '34631'
+git_credential_manager_version: '2.0.696'
 
 # The SHA256 of the Git Credential Manager JAR
-git_credential_manager_redis_sha256sum: '41d116b3e4b62099a41d7de21f815724cefa8d386af767695da8ef0ac8b4aa33'
+git_credential_manager_redis_sha256sum: 'caba73101f80c1a789225730d0d1b82941c31707cef6a55fb3cb3caada68d234'
 
 # The credential store to use
 git_credential_manager_credential_store: 'secretservice'
