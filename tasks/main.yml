@@ -20,7 +20,7 @@
   apt:
     name:
       - git
-      - 'libicu6*'
+      - icu-devtools
       - libsecret-1-0
     state: present
 
