@@ -1,9 +1,9 @@
 ---
 # Git Credential Manager version number
-git_credential_manager_version: '2.0.696'
+git_credential_manager_version: '2.0.866'
 
 # The SHA256 of the Git Credential Manager JAR
-git_credential_manager_redis_sha256sum: 'caba73101f80c1a789225730d0d1b82941c31707cef6a55fb3cb3caada68d234'
+git_credential_manager_redis_sha256sum: '882a76ef9a7fc7b40eb26ac4803b366ae73d110ba583dee923398543a4458d31'
 
 # The credential store to use
 git_credential_manager_credential_store: 'secretservice'

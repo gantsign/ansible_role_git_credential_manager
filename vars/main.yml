@@ -3,7 +3,7 @@
 git_credential_manager_mirror: 'https://github.com/GitCredentialManager/git-credential-manager/releases/download/v{{ git_credential_manager_version }}'
 
 # File name of the Git Credential Manager redistributable
-git_credential_manager_redis_filename: 'gcmcore-linux_amd64.{{ git_credential_manager_version }}.deb'
+git_credential_manager_redis_filename: 'gcm-linux_amd64.{{ git_credential_manager_version }}.deb'
 
 # The credential helper to set in the git config
 git_credential_manager_credential_helper: '/usr/local/share/gcm-core/git-credential-manager-core'
