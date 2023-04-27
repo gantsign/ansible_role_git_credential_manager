@@ -10,4 +10,4 @@
       changed_when: false
 
   roles:
-    - role: ansible_role_git_credential_manager
+    - role: git_credential_manager
