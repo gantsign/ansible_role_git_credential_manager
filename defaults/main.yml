@@ -1,3 +1,4 @@
+# code: language=ansible
 ---
 # Git Credential Manager version number
 git_credential_manager_version: '2.0.935'

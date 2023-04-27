@@ -1,44 +1,45 @@
+# code: language=ansible
 ---
-- name: create download directory
-  file:
+- name: Create download directory
+  ansible.builtin.file:
     state: directory
     mode: 'u=rwx,go=rx'
     dest: '{{ git_credential_manager_download_dir }}'
 
-- name: download the Git Credential Manager
-  get_url:
+- name: Download the Git Credential Manager
+  ansible.builtin.get_url:
     url: '{{ git_credential_manager_mirror }}/{{ git_credential_manager_redis_filename }}'
     dest: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_redis_filename }}'
     checksum: 'sha256:{{ git_credential_manager_redis_sha256sum }}'
-    force: no
-    use_proxy: yes
-    validate_certs: yes
+    force: false
+    use_proxy: true
+    validate_certs: true
     mode: 'u=rw,go=r'
 
-- name: install dependencies
-  become: yes
-  apt:
+- name: Install dependencies
+  become: true
+  ansible.builtin.apt:
     name:
       - git
       - icu-devtools
       - libsecret-1-0
     state: present
 
-- name: install Git Credential Manager
-  become: yes
-  apt:
+- name: Install Git Credential Manager
+  become: true
+  ansible.builtin.apt:
     deb: '{{ git_credential_manager_download_dir }}/{{ git_credential_manager_redis_filename }}'
 
-- name: configure Git (credential helper)
-  become: yes
-  git_config:
+- name: Configure Git (credential helper)
+  become: true
+  ansible.builtin.git_config:
     scope: system
     name: 'credential.helper'
     value: '{{ git_credential_manager_credential_helper }}'
 
-- name: configure Git (credential store)
-  become: yes
-  git_config:
+- name: Configure Git (credential store)
+  become: true
+  ansible.builtin.git_config:
     scope: system
     name: 'credential.credentialStore'
     value: '{{ git_credential_manager_credential_store }}'
