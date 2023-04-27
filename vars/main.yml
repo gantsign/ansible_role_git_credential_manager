@@ -1,3 +1,4 @@
+# code: language=ansible
 ---
 # Mirror to download the Git Credential Manager
 git_credential_manager_mirror: 'https://github.com/git-ecosystem/git-credential-manager/releases/download/v{{ git_credential_manager_version }}'
