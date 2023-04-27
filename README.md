@@ -5,7 +5,7 @@ Ansible Role: Git Credential Manager
 [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-gantsign.git__credential__manager-blue.svg)](https://galaxy.ansible.com/gantsign/git_credential_manager)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/gantsign/ansible_role_git_credential_manager/master/LICENSE)
 
-Role to install the [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager).
+Role to install the [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
 
 **Important:** while the Git Credential Manager works on macOS and Windows this
 Ansible role only works on Debian and Ubuntu.
@@ -36,10 +36,10 @@ The following variables will change the behavior of this role:
 
 ```yaml
 # Git Credential Manager version number
-git_credential_manager_version: '2.0.866'
+git_credential_manager_version: '2.0.935'
 
 # The SHA256 of the Git Credential Manager JAR
-git_credential_manager_redis_sha256sum: '882a76ef9a7fc7b40eb26ac4803b366ae73d110ba583dee923398543a4458d31'
+git_credential_manager_redis_sha256sum: 'bf788ae6d6d67b805cbc7f35f818696248b4d4f62175d19bb1a57d8d2148619b'
 
 # The credential store to use
 git_credential_manager_credential_store: 'secretservice'
