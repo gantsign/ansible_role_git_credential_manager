@@ -19,13 +19,13 @@ jobs:
     strategy:
       matrix:
         ansible-version:
-          - '2.10.7' # max-ansible-test-version
+          - '6.4.0' # max-ansible-test-version
         molecule-scenario:
           - debian_max
           - debian_min
           - ubuntu_max
         include:
-          - ansible-version: '2.9.26' # min-ansible-test-version
+          - ansible-version: '5.10.0' # min-ansible-test-version
             molecule-scenario: ubuntu_min
 
     env:
